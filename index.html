@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Valentine Animation</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f0f0f0;
+    }
+
+    .card {
+      position: relative;
+      width: 300px;
+      height: 400px;
+      background-color: #fff;
+      border-radius: 15px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .heart {
+      position: absolute;
+      top: -30px;
+      width: 60px;
+      height: 60px;
+      background-image: url('https://emojicdn.elk.sh/❤️');
+      background-size: contain;
+      animation: float 2s ease-in-out infinite;
+    }
+
+    h1 {
+      font-family: 'Arial', sans-serif;
+      color: #e84d7a;
+      font-size: 24px;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="heart"></div>
+    <h1>Happy Valentine's Day!</h1>
+    <input type="text" id="nameInput" placeholder="Enter Your Name">
+    <button id="generateBtn" onclick="generateMessage()">Generate</button>
+    <p id="message"></p>
+  </div>
+
+  <script>
+    function generateMessage() {
+      const nameInput = document.getElementById('nameInput');
+      const name = nameInput.value;
+      const messageContainer = document.getElementById('message');
+      const message = `Hi ${name}, I hope your day is filled with love and happiness! Happy Valentine's Day! ❤️`;
+      messageContainer.textContent = message;
+      nameInput.style.display = 'none';
+      document.getElementById('generateBtn').style.display = 'none';
+    }
+  </script>
+</body>
+</html>
